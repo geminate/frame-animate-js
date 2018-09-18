@@ -25,6 +25,7 @@ var FrameAnimate = function () {
         this.frameWidth = this.imgWidth / this.frameNumber;
         this.currentFrame = 0;
         this.timer = null;
+        this.callBack = [];
         this._init();
     }
 
@@ -44,20 +45,72 @@ var FrameAnimate = function () {
             this.currentFrame = frameNum;
             this._changePosition(frameNum * this.frameWidth);
         }
+    }, {
+        key: '_alertCallBack',
+        value: function _alertCallBack() {
+            var _this = this;
+
+            this.callBack.forEach(function (_ref2) {
+                var frameNumber = _ref2.frameNumber,
+                    func = _ref2.func;
+
+                if (frameNumber == _this.currentFrame) {
+                    console.log(_this.currentFrame);
+                    console.log(_this.callBack);
+                    func();
+                }
+            });
+        }
+    }, {
+        key: '_clearInterval',
+        value: function _clearInterval() {
+            this.timer && clearInterval(this.timer);
+            this.timer = null;
+        }
+    }, {
+        key: '_play',
+        value: function _play(start, end, order) {
+            var _this2 = this;
+
+            if (!this.timer) {
+                this._changeToFrame(start);
+                this.timer = setInterval(function () {
+                    if (_this2.currentFrame == end) {
+                        _this2._clearInterval();
+                    } else {
+                        order == 0 && _this2.currentFrame++;
+                        order == 1 && _this2.currentFrame--;
+                        _this2._changeToFrame(_this2.currentFrame);
+                        _this2._alertCallBack();
+                    }
+                }, this.delay);
+            }
+        }
 
         /**
-         * 播放
+         * 正向播放
          */
 
     }, {
-        key: 'play',
-        value: function play() {
-            var _this = this;
+        key: 'playForward',
+        value: function playForward() {
+            var start = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+            var end = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.frameNumber - 1;
 
-            !this.timer && (this.timer = setInterval(function () {
-                _this._changeToFrame(_this.currentFrame);
-                _this.currentFrame++;
-            }, this.delay));
+            this._play(start, end, 0);
+        }
+
+        /**
+         * 反向播放
+         */
+
+    }, {
+        key: 'playBack',
+        value: function playBack() {
+            var start = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.frameNumber - 1;
+            var end = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+            this._play(start, end, 1);
         }
 
         /**
@@ -67,8 +120,7 @@ var FrameAnimate = function () {
     }, {
         key: 'reset',
         value: function reset() {
-            this.timer && clearInterval(this.timer);
-            this.timer = null;
+            this._clearInterval();
             this._changeToFrame(0);
         }
 
@@ -81,6 +133,28 @@ var FrameAnimate = function () {
         value: function pause() {
             this.timer && clearInterval(this.timer);
             this.timer = null;
+        }
+    }, {
+        key: 'addFrameCallBack',
+        value: function addFrameCallBack(frameNumber, func) {
+            this.callBack.push({ frameNumber: frameNumber, func: func });
+            return frameNumber;
+        }
+    }, {
+        key: 'removeFrameCallBack',
+        value: function removeFrameCallBack(frameNumber) {
+            var _this3 = this;
+
+            this.callBack.forEach(function (item) {
+                if (item.frameNumber == frameNumber) {
+                    _this3.callBack.splice(_this3.callBack.indexOf(item), 1);
+                }
+            });
+        }
+    }, {
+        key: 'getCurrentFrame',
+        value: function getCurrentFrame() {
+            return this.currentFrame;
         }
     }]);
 

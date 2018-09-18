@@ -19,18 +19,35 @@
     const config = {
         dom: document.querySelector("#test"),
         frameNumber: 16,
-        delay: 100,
+        delay: 70,
         imgPath: './app-download.png',
         imgWidth: 1280
     };
     const frame = new FrameAnimate(config);
 
+    let callback15, callback9;
+
     document.querySelector("#test").addEventListener("mouseenter", function () {
-        frame.play();
+
+        callback9 = frame.addFrameCallBack(9, function () {
+            frame.pause();
+            frame.playForward(9, 15);
+        });
+
+        callback15 = frame.addFrameCallBack(15, function () {
+            frame.pause();
+            frame.playBack(15, 0);
+        });
+
+        frame.pause();
+        frame.playForward(frame.getCurrentFrame());
     });
 
     document.querySelector("#test").addEventListener("mouseleave", function () {
+        frame.removeFrameCallBack(callback9);
+        frame.removeFrameCallBack(callback15);
         frame.pause();
+        frame.playBack(frame.getCurrentFrame(), 0);
     });
 </script>
 </html>
