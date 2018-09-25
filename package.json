@@ -1,8 +1,8 @@
 {
   "name": "frame-animate",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "A javascript lib to create frame-by-frame animation.",
+  "main": "dist/index.js",
   "scripts": {
     "watch": "babel src -d dist -w"
   },
