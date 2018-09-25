@@ -10,8 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/geminate/frame-animate.git"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "animate",
+    "frame-by-frame"
+  ],
+  "author": "geminate",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/geminate/frame-animate/issues"
   },

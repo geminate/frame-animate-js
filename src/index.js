@@ -59,31 +59,19 @@ class FrameAnimate {
         }
     }
 
-    /**
-     * 正向播放
-     */
     playForward(start = 0, end = this.frameNumber - 1) {
         this._play(start, end, 0);
     }
 
-    /**
-     * 反向播放
-     */
     playBack(start = this.frameNumber - 1, end = 0) {
         this._play(start, end, 1);
     }
 
-    /**
-     * 重置
-     */
     reset() {
         this._clearInterval();
         this._changeToFrame(0);
     }
 
-    /**
-     * 暂停
-     */
     pause() {
         this.timer && clearInterval(this.timer);
         this.timer = null;
@@ -107,3 +95,5 @@ class FrameAnimate {
     }
 
 }
+
+module.exports = FrameAnimate;

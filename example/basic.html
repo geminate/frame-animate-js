@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .example {
+            width: 80px;
+            height: 80px;
+            margin: 200px auto;
+            border: 1px solid #dcdcdc;
+        }
+    </style>
+</head>
+<body>
+<div id="test" class="example"></div>
+</body>
+<script src="../dist/index.js"></script>
+<script>
+    const config = {
+        dom: document.querySelector("#test"),
+        frameNumber: 16,
+        delay: 70,
+        imgPath: './app-download.png',
+        imgWidth: 1280
+    };
+    const frame = new FrameAnimate(config);
+    frame.playForward();
+</script>
+</html>
