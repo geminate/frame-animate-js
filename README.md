@@ -60,11 +60,11 @@ Return current frame number.
 
 All the following examples use this picture as material.(from bilibili.com)
 
-![image](https://github.com/geminate/frame-animate/blob/master/blob/app-download.png)
+![image](https://raw.githubusercontent.com/geminate/frame-animate-js/master/blob/app-download.png)
 
 ### Basic
 
-![image](https://github.com/geminate/frame-animate/blob/master/blob/basic.gif)
+![image](https://raw.githubusercontent.com/geminate/frame-animate-js/master/blob/basic.gif)
 
 ```javascript
 import FrameAnimate from 'frame-animate-js';
@@ -82,7 +82,7 @@ frame.playForward();
 
 ### Loop playback
 
-![image](https://github.com/geminate/frame-animate/blob/master/blob/loop.gif)
+![image](https://raw.githubusercontent.com/geminate/frame-animate-js/master/blob/loop.gif)
 
 ```javascript
 import FrameAnimate from 'frame-animate-js';
@@ -110,7 +110,7 @@ frame.addFrameCallBack(15, function () {
 
 ### Complex
 
-![image](https://github.com/geminate/frame-animate/blob/master/blob/complex.gif)
+![image](https://raw.githubusercontent.com/geminate/frame-animate-js/master/blob/complex.gif)
 
 ```javascript
 import FrameAnimate from 'frame-animate-js';
