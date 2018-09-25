@@ -1,5 +1,5 @@
 {
-  "name": "frame-animate",
+  "name": "frame-animate-js",
   "version": "0.0.1",
   "description": "A javascript lib to create frame-by-frame animation.",
   "main": "dist/index.js",

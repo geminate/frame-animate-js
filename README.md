@@ -7,7 +7,7 @@ A javascript lib to create frame-by-frame animation.
 You can install frame-animate by npm.
 
 ```javascript
-$ npm install frame-animate
+$ npm install frame-animate-js
 ```
 
 or use script label
@@ -67,7 +67,7 @@ All the following examples use this picture as material.(from bilibili.com)
 ![image](https://github.com/geminate/frame-animate/blob/master/blob/basic.gif)
 
 ```javascript
-import FrameAnimate from 'frame-animate';
+import FrameAnimate from 'frame-animate-js';
 
 const config = {
     dom: document.querySelector("#test"),
@@ -85,7 +85,7 @@ frame.playForward();
 ![image](https://github.com/geminate/frame-animate/blob/master/blob/loop.gif)
 
 ```javascript
-import FrameAnimate from 'frame-animate';
+import FrameAnimate from 'frame-animate-js';
 
 const config = {
     dom: document.querySelector("#test"),
@@ -113,7 +113,7 @@ frame.addFrameCallBack(15, function () {
 ![image](https://github.com/geminate/frame-animate/blob/master/blob/complex.gif)
 
 ```javascript
-import FrameAnimate from 'frame-animate';
+import FrameAnimate from 'frame-animate-js';
 
 const config = {
     dom: document.querySelector("#test"),
