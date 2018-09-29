@@ -86,11 +86,6 @@ var FrameAnimate = function () {
                 }, this.delay);
             }
         }
-
-        /**
-         * 正向播放
-         */
-
     }, {
         key: 'playForward',
         value: function playForward() {
@@ -99,11 +94,6 @@ var FrameAnimate = function () {
 
             this._play(start, end, 0);
         }
-
-        /**
-         * 反向播放
-         */
-
     }, {
         key: 'playBack',
         value: function playBack() {
@@ -112,22 +102,12 @@ var FrameAnimate = function () {
 
             this._play(start, end, 1);
         }
-
-        /**
-         * 重置
-         */
-
     }, {
         key: 'reset',
         value: function reset() {
             this._clearInterval();
             this._changeToFrame(0);
         }
-
-        /**
-         * 暂停
-         */
-
     }, {
         key: 'pause',
         value: function pause() {
@@ -160,3 +140,5 @@ var FrameAnimate = function () {
 
     return FrameAnimate;
 }();
+
+module.exports = FrameAnimate;

@@ -150,3 +150,30 @@ document.querySelector("#test").addEventListener("mouseleave", function () {
 });
 ```
 
+### Use in vue
+
+```html
+<template>
+  <div ref="imgContainer">
+  </div>
+</template>
+```
+
+```javascript
+import FrameAnimate from 'frame-animate-js';
+import Img from './app-download.png';
+
+export default {
+  mounted() {
+    const config = {
+      dom: this.$refs.imgContainer,
+      frameNumber: 16,
+      delay: 70,d
+      imgPath: Img,
+      imgWidth: 1280
+    };
+    const frame = new FrameAnimate(config);
+    frame.playForward()
+  }
+}
+```
