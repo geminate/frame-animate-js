@@ -93,7 +93,12 @@ class FrameAnimate {
     getCurrentFrame() {
         return this.currentFrame;
     }
-
 }
 
-module.exports = FrameAnimate;
+if (typeof module === "object" && module && typeof module.exports === "object") {
+    module.exports = FrameAnimate;
+} else if (typeof define === "function" && define.amd) {
+    define("FrameAnimate", [], () => FrameAnimate);
+} else if (typeof window === "object" && typeof window.document === "object") {
+    window.FrameAnimate = FrameAnimate;
+}
